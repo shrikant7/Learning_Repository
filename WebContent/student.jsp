@@ -2,8 +2,8 @@
     pageEncoding="ISO-8859-1"%>
  <%!HttpSession session = null;
   %>
-<%HttpServletResponse httpResponse = (HttpServletResponse)response;
-
+<%
+HttpServletResponse httpResponse = (HttpServletResponse)response;
 httpResponse.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); 
 response.addHeader("Cache-Control", "post-check=0, pre-check=0");
 httpResponse.setHeader("Pragma","no-cache"); 
@@ -54,16 +54,16 @@ httpResponse.setHeader("Pragma","no-cache");
         <div class="container">
         	<div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
 			<ul>
-				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 456 7890</li>
-				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+				
+				<li><a href="mailto:e-lnmiit@gmail.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>e-lnmiit@gmail.com</a></li>
 			</ul>
 		</div>
             <div class="header_right">
                 <div class="login">
                 <ul> 
-                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="30px" height="40px"></span></a></li>
-                    <li><a href="#"><span aria-hidden="true" >Account Details </span></a></li>
-                	<li><button class = "btn-btn-primary" type="button" onclick="location.href = './Logout';">Logout</button></li>
+                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="20px" height="30px"></span></a></li>
+                    <li><a href="accountDetails.jsp"><span aria-hidden="true" >Account Details </span></a></li>
+                	<li><button class = "btn btn-primary" type="button" onclick="location.href = './Logout';">Logout</button></li>
                 </ul>
                 </div>    
                      
@@ -93,11 +93,10 @@ httpResponse.setHeader("Pragma","no-cache");
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--horatio">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="index.jsp" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="myappointment.html" class="menu__link">Discussion</a></li> 
+							<li class="menu__item menu__item--current"><a href="course.jsp" class="menu__link">Home</a></li>
 							
-							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Ask Question to Faculty</a></li> 
-							<li class="menu__item"><a href="mydetails.html" class="menu__link">Contribute</a></li> 
+							<li class="menu__item"><a href="#" class="menu__link">Ask Question to Faculty</a></li> 
+							<li class="menu__item"><a href="#" class="menu__link">Contribute</a></li> 
 						</ul>
 					</nav>
 				</div>
@@ -186,13 +185,13 @@ httpResponse.setHeader("Pragma","no-cache");
  
               <p style="padding:90px;"></p>
    <!--footer starts-->
-   <div class="footer w3ls">
+     <div class="footer w3ls">
 	<div class="container">
 		<div class="footer-main">
 			<div class="footer-top">
 				<div class="col-md-4 ftr-grid">
-					<h3>Learning</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+					<h3>E-LNMIIT</h3>
+					<p>Providing a platform to Lnmiit students to learn the courses from best online material </p>
 				</div>
 				<div class="col-md-4 ftr-grid">
 					<h3>Our Address</h3>
@@ -201,16 +200,16 @@ httpResponse.setHeader("Pragma","no-cache");
 							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						</div>
 						<div class="ftr-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p>Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="ftr-address">
 						<div class="local">
-							<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 						</div>
 						<div class="ftr-text">
-							<p>+1 (512) 154 8176</p>
+							<p>e-lnmiit@gmail.com</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -226,28 +225,24 @@ httpResponse.setHeader("Pragma","no-cache");
 						<li><a class="tw" href="#"> </a></li>
 						<li><a class="dri" href="#"> </a></li>
 						<li><a class="p" href="#"> </a></li>
-						
+
 					</ul>
 				</div>
 			   <div class="clearfix"> </div>
 			</div>
+			<div id="contact">
 			<div class="footer-bottom">
 				<div class="col-md-6 ftr-navg">
-					<ul>
-						<li><a href="index.jsp">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="shortcodes.html">Short Codes</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
+					
 				</div>
 				<div class="col-md-6 copyrights">
-					<p>© 2016 Learning. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+					<p>© 2017 E-LNMIIT. All Rights Reserved | Design by <span style="font-family:cursive">Manish Jain </span>  </p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 

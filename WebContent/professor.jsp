@@ -5,10 +5,11 @@
 %>
 <%! Connection conn;String dep,username;ResultSet rs;PreparedStatement pst,temp;
 	int uid,DID;HttpSession session = null;
+	ArrayList<Trending>trendingList;
 	ArrayList<Pair> courseList;ArrayList<Navigation> cseNav,cceNav,eceNav,mmeNav; 
 	%> 
-<%HttpServletResponse httpResponse = (HttpServletResponse)response;
-
+<%
+HttpServletResponse httpResponse = (HttpServletResponse)response;
 httpResponse.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); 
 response.addHeader("Cache-Control", "post-check=0, pre-check=0");
 httpResponse.setHeader("Pragma","no-cache"); 
@@ -27,6 +28,17 @@ httpResponse.setHeader("Pragma","no-cache");
 	try{
 		// department cse
 		conn = DB.getConnect();
+		trendingList = new ArrayList<Trending>();
+        /*trending  */
+        
+        temp=conn.prepareStatement("Select TID,LID,lname from lobject order by rating desc LIMIT 5;");
+        rs = temp.executeQuery();
+        while(rs.next())
+        {
+        	trendingList.add(new Trending(rs.getInt(1),rs.getInt(2),rs.getString(3)));
+        }
+        
+        /*courseName,CID  */
 		temp = conn.prepareStatement("select CID,cname from course where DID=?");
 		temp.setInt(1, 1);
 		rs = temp.executeQuery();
@@ -148,7 +160,7 @@ httpResponse.setHeader("Pragma","no-cache");
     <style>
      
         #navi{
-        	background: #F0F8FF;
+        	background: #ffffff;
         }
        #topics{
         	
@@ -188,16 +200,16 @@ httpResponse.setHeader("Pragma","no-cache");
         <div class="container">
         	<div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
 			<ul>
-				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 456 7890</li>
-				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+				
+				<li><a href="mailto:e-lnmiit@gmail.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>e-lnmiit@gmail.com</a></li>
 			</ul>
 		</div>
             <div class="header_right">
                 <div class="login">
                 <ul> 
-                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="30px" height="40px"></span></a></li>
-                    <li><a href="#"><span aria-hidden="true" >Account Details </span></a></li>
-                	<li><button class = "btn-btn-primary" type="button" onclick="location.href = './Logout';">Logout</button></li>
+                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="20px" height="30px"></span></a></li>
+                    <li><a href="accountDetails.jsp"><span aria-hidden="true" >Account Details </span></a></li>
+                	<li><button class = "btn btn-primary" type="button" onclick="location.href = './Logout';">Logout</button></li>
                 </ul>
                 </div>    
                      
@@ -228,9 +240,8 @@ httpResponse.setHeader("Pragma","no-cache");
 					<nav class="menu menu--horatio">
 						<ul class="nav navbar-nav menu__list">
 							<li class="menu__item menu__item--current"><a href="index.jsp" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="myappointment.html" class="menu__link">Discussion</a></li> 
-							
-							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Messages <span class="badge">0</span></a> </li>  
+							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Messages <span class="badge">0</span></a> </li>
+							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Add Topic </a> </li>
 						</ul>
 					</nav>
 				</div>
@@ -300,6 +311,7 @@ httpResponse.setHeader("Pragma","no-cache");
 					</ul>
 				</li>
 			</ul>
+			<p style="padding:10px;"></p>
         </div>
         <div class="col-xs-12 col-sm-6 ">
         	<div><strong><h1>Courses</h1></strong></div>
@@ -320,28 +332,29 @@ httpResponse.setHeader("Pragma","no-cache");
           
            <p style="padding:8px;"></p>
            <div class="table-responsive">
-           	<table id="trends" class="table table-striped table-hover">
+           <form method = "post" action="discussion.jsp">
+           	<table class="table table-striped table-hover">
            		 <tr><td><span id="txt">Trending</span></td></tr>
-           		<tr><td>&nbsp;Trend1</td></tr>
-           		
-           		<tr><td>&nbsp;Trend2</td></tr>
-           		<tr><td>&nbsp;Trend3</td></tr>
-           		<tr><td>&nbsp;Trend4</td></tr>
-           		<tr><td>&nbsp;Trend5</td></tr>
+           		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(0).getTID()%>&LID=<%=trendingList.get(0).getLID()%>">&nbsp;<%=trendingList.get(0).getLname()%></a></td></tr>
+           		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(1).getTID()%>&LID=<%=trendingList.get(1).getLID()%>">&nbsp;<%=trendingList.get(1).getLname()%></a></td></tr>
+           		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(2).getTID()%>&LID=<%=trendingList.get(2).getLID()%>">&nbsp;<%=trendingList.get(2).getLname()%></a></td></tr>
+           		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(3).getTID()%>&LID=<%=trendingList.get(3).getLID()%>">&nbsp;<%=trendingList.get(3).getLname()%></a></td></tr>
+           		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(4).getTID()%>&LID=<%=trendingList.get(4).getLID()%>">&nbsp;<%=trendingList.get(4).getLname()%></a></td></tr>
            </table>
+          </form>
         </div>
     </div>
     </div>
 </div>
  <p style="padding:90px;"></p>
    <!--footer starts-->
-   <div class="footer w3ls">
+      <div class="footer w3ls">
 	<div class="container">
 		<div class="footer-main">
 			<div class="footer-top">
 				<div class="col-md-4 ftr-grid">
-					<h3>Learning</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+					<h3>E-LNMIIT</h3>
+					<p>Providing a platform to Lnmiit students to learn the courses from best online material </p>
 				</div>
 				<div class="col-md-4 ftr-grid">
 					<h3>Our Address</h3>
@@ -350,16 +363,16 @@ httpResponse.setHeader("Pragma","no-cache");
 							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						</div>
 						<div class="ftr-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p>Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="ftr-address">
 						<div class="local">
-							<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 						</div>
 						<div class="ftr-text">
-							<p>+1 (512) 154 8176</p>
+							<p>e-lnmiit@gmail.com</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -375,28 +388,24 @@ httpResponse.setHeader("Pragma","no-cache");
 						<li><a class="tw" href="#"> </a></li>
 						<li><a class="dri" href="#"> </a></li>
 						<li><a class="p" href="#"> </a></li>
-						
+
 					</ul>
 				</div>
 			   <div class="clearfix"> </div>
 			</div>
+			<div id="contact">
 			<div class="footer-bottom">
 				<div class="col-md-6 ftr-navg">
-					<ul>
-						<li><a href="index.jsp">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="shortcodes.html">Short Codes</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
+					
 				</div>
 				<div class="col-md-6 copyrights">
-					<p>© 2016 Learning. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+					<p>© 2017 E-LNMIIT. All Rights Reserved | Design by <span style="font-family:cursive">Manish Jain </span>  </p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!--footer ends here -->    
 	

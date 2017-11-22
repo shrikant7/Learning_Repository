@@ -10,8 +10,10 @@
 	HttpSession session;
 	%> 
 <%
-	CID = (int)session.getAttribute("CID");
-	System.out.print("cid:"+" "+CID);
+HttpServletResponse httpResponse = (HttpServletResponse)response;
+httpResponse.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); 
+response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+httpResponse.setHeader("Pragma","no-cache"); 
 	session=request.getSession();
 	cseNav = (ArrayList<Navigation>)session.getAttribute("cseNav");
 	cceNav = (ArrayList<Navigation>)session.getAttribute("cceNav");
@@ -40,14 +42,14 @@
 		   	if(session.getAttribute("LID")!=null)
 			   	LID = (int)session.getAttribute("LID");
 	        System.out.println("TID:"+" "+TID+" topic:"+topic);
-	        if(request.getAttribute("commentList")!=null){
+	        /* if(request.getAttribute("commentList")!=null){
 	        	commentList = (ArrayList<DiscussionStore>)request.getAttribute("commentList");
 	        	rating = (int)request.getAttribute("rating");
 	        	System.out.println("values from discussioPopup:"+rating+" "+LID);
 	        	request.setAttribute("commentList", null);
 	        	request.setAttribute("rating", null);
 	        	session.setAttribute("LID", null);
-	        }
+	        } */
 	        conn = DB.getConnect();
 	        PreparedStatement pst = conn.prepareStatement("Select LID,lname,link,discription,rating from lobject where TID=?");
 	        pst.setInt(1, TID);
@@ -73,8 +75,9 @@
        <style>
      
         #navi{
-          background: #F0F8FF;
+          background: #ffffff;
         }
+       
          td {
       padding: 15px;
       text-align: left;
@@ -115,17 +118,18 @@
 <!-- header -->
  <div class="header wow zoomIn">
         <div class="container">
-          <div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
-      <ul>
-        <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 456 7890</li>
-        <li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
-      </ul>
-    </div>
+         <div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
+			<ul>
+				
+				<li><a href="mailto:e-lnmiit@gmail.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>e-lnmiit@gmail.com</a></li>
+			</ul>
+		</div>
             <div class="header_right">
                 <div class="login">
                 <ul> 
-                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="30px" height="40px"></span></a></li>
-                    <li><a href="#"><span aria-hidden="true" >Account Details </span></a></li>
+                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="20px" height="30px"></span></a></li>
+                    <li><a href="accountDetails.jsp"><span aria-hidden="true" >Account Details </span></a></li>
+                    <li><button class = "btn btn-primary" type="button" onclick="location.href = './Logout';">Logout</button></li>
                 
                 </ul>
                 </div>    
@@ -147,7 +151,7 @@
           </button>
           <div class="logo grid">
             <div class="grid__item color-3">
-              <h1><a class="link link--nukun" href="index.html"><i></i>E-<span>LNMIIT</span></a></h1>
+              <h1><a class="link link--nukun" href="index.jsp"><i></i>E-<span>LNMIIT</span></a></h1>
             </div>
           </div>
         </div>
@@ -156,10 +160,8 @@
         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
           <nav class="menu menu--horatio">
             <ul class="nav navbar-nav menu__list">
-              <li class="menu__item menu__item--current"><a href="student.html" class="menu__link">Home</a></li>
-              <li class="menu__item"><a href="myappointment.html" class="menu__link">Discussion</a></li> 
-              
-              <li class="menu__item"><a href="medicalhistory.html" class="menu__link">Messages</a></li> 
+              <li class="menu__item menu__item--current"><a href="lobject.jsp" class="menu__link">Home</a></li>
+              <li class="menu__item"><a href="#" class="menu__link">Messages</a></li> 
             
             </ul>
           </nav>
@@ -230,6 +232,7 @@
 					</ul>
 				</li>
 			</ul>
+			<p style="padding:10px;"></p>
         </div>
         <div class="col-xs-12 col-sm-9 ">
         	<div><strong><h1><%=topic %></h1></strong></div>
@@ -239,7 +242,7 @@
            				<table class="table table-hover">
            				<% for(Lobject p:objectList) {%>
     						 <tr id="topics">
-    						 <td ><a href="<%=p.getLink() %>"target="_blank"><%=p.getLname() %></a><br/>
+    						 <td ><span style="font-family:monospace; font-size:150%;"><a href="<%=p.getLink() %>"target="_blank"><%=p.getLname() %></a></span><br/>
                                   <p><%=p.getDescription() %></p> 
                                   </td>
                                   <td style="text-align: right">Rating:<%=p.getRating() %>/5 &nbsp;&nbsp;
@@ -256,69 +259,65 @@
           </div>
        <p style="padding:90px;"></p>
    <!--footer starts-->
-   <div class="footer w3ls">
-  <div class="container">
-    <div class="footer-main">
-      <div class="footer-top">
-        <div class="col-md-4 ftr-grid">
-          <h3>Learning</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-        </div>
-        <div class="col-md-4 ftr-grid">
-          <h3>Our Address</h3>
-          <div class="ftr-address">
-            <div class="local">
-              <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-            </div>
-            <div class="ftr-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="clearfix"> </div>
-          </div>
-          <div class="ftr-address">
-            <div class="local">
-              <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-            </div>
-            <div class="ftr-text">
-              <p>+1 (512) 154 8176</p>
-            </div>
-            <div class="clearfix"> </div>
-          </div>
-        </div>
-        <div class="col-md-4 ftr-grid">
-          <h3>Stay In Touch</h3>
-          <form action="#" method="post">
-            <input type="text" placeholder="Enter Email"  name="Enter Email" required="">
-            <input type="submit" value="">
-          </form>
-          <ul class="ftr-social-icons">
-            <li><a class="fa" href="#"> </a></li>
-            <li><a class="tw" href="#"> </a></li>
-            <li><a class="dri" href="#"> </a></li>
-            <li><a class="p" href="#"> </a></li>
-            
-          </ul>
-        </div>
-         <div class="clearfix"> </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="col-md-6 ftr-navg">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="shortcodes.html">Short Codes</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-md-6 copyrights">
-          <p>© 2016 Learning. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-        </div>
-        <div class="clearfix"> </div>
-      </div>
-    </div>
-  </div>
-</div>  
+     <div class="footer w3ls">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid">
+					<h3>E-LNMIIT</h3>
+					<p>Providing a platform to Lnmiit students to learn the courses from best online material </p>
+				</div>
+				<div class="col-md-4 ftr-grid">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+						</div>
+						<div class="ftr-text">
+							<p>Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+						</div>
+						<div class="ftr-text">
+							<p>e-lnmiit@gmail.com</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid">
+					<h3>Stay In Touch</h3>
+					<form action="#" method="post">
+						<input type="text" placeholder="Enter Email"  name="Enter Email" required="">
+						<input type="submit" value="">
+					</form>
+					<ul class="ftr-social-icons">
+						<li><a class="fa" href="#"> </a></li>
+						<li><a class="tw" href="#"> </a></li>
+						<li><a class="dri" href="#"> </a></li>
+						<li><a class="p" href="#"> </a></li>
+
+					</ul>
+				</div>
+			   <div class="clearfix"> </div>
+			</div>
+			<div id="contact">
+			<div class="footer-bottom">
+				<div class="col-md-6 ftr-navg">
+					
+				</div>
+				<div class="col-md-6 copyrights">
+					<p>© 2017 E-LNMIIT. All Rights Reserved | Design by <span style="font-family:cursive">Manish Jain </span> </p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 
 
        

@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
 		try{
-	    	out.println("in login");
+	    	//out.println("in login");
 	        String email = request.getParameter("email");   
 	        String password = request.getParameter("password");
 	        System.out.println(email+" "+password);
@@ -74,8 +74,14 @@ public class Login extends HttpServlet {
 		        }
 	        }
 	        else{
-	           out.println("Invalid login credentials");
-	           out.print("<h3><a href='index.jsp'>HOME</a></h3>");
+	        	//System.out.println("invalid login credentials!!");
+            	out.println("<script type=\'text/javascript\'>");
+	            out.println("alert('Invalid login credential!!!);");
+            	out.println("location='index.jsp';");
+            	out.println("</script>");
+            	response.setStatus(response.SC_MOVED_TEMPORARILY);
+		        response.setHeader("Location", "index.jsp");
+            	return;
 	        }
 	        
 		}

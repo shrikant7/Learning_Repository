@@ -806,8 +806,24 @@ top: 9%;
 .sign-in a:hover{
     color: #FDA30E;	
 }
+.sign-in{
+	color:black;
+}
 .sign{
+    width:52%;
+}
+.sign1{
     width:100%;
+    padding: 8px 15px 9px 15px;
+     font-size: 12px;
+}
+.sign1:hover{
+    outline: none !important;
+    border:1px solid #FDA30E;
+}
+.sign1:focus{
+    outline: none !important;
+    border:1px solid #FDA30E;
 }
 .sign:hover{
     outline: none !important;
@@ -2893,20 +2909,26 @@ span.glyphicon.glyphicon-eye-open{
   opacity: 1;
 }
 /* dropdown links */
-ul { list-style-type: none; }
+ul {   
+    list-style-type: none; }
 label{
+ 
   background-color: #AAAFAB;
- /* border-radius: 5px;*/
+ border-radius: 5px;
   padding: 3px;
   padding-left: 25px;
   color: white; 
+    
+     
 }
+
 .navi li { 
-  /*background-color: #AAAFAB;*/
-  margin: 10px;
+  background-color: #AAAFAB;
+  margin: 0px;
   padding: 5px;
-  border: 1px ridge ;
+  border: 1px;
   border-radius: 5px;
+    font-weight:bold;
 }
 .navi input[type=checkbox] { display: none; }
 .navi input[type=checkbox] ~ ul { 
@@ -2935,7 +2957,7 @@ label{
   width: 0;
   height: 0;
   display: inline-block;
-  text-align: center;
+  text-align:left;
   content: '';
   color: #AAAFAB;
    -webkit-transition:all .5s ease;  
@@ -2965,6 +2987,7 @@ label{
 }
 
 .rating:not(:checked) > label {
+    background: white;
     float:right;
     width:1em;
     padding:0 .1em;
@@ -2978,7 +3001,7 @@ label{
 }
 
 .rating:not(:checked) > label:before {
-    content: '★ ';
+    content: ' ';
 }
 
 .rating > input:checked ~ label {

@@ -94,10 +94,9 @@
 		<div class="container">
 			<div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
 				<ul>
-					<li><span class="glyphicon glyphicon-earphone"
-						aria-hidden="true"></span>+123 456 7890</li>
-					<li><a href="mailto:info@example.com"><span
-							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+					
+					<li><a href="mailto:e-lnmiit@gmail.com"><span
+							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>e-lnmiit@gmail.com</a></li>
 				</ul>
 			</div>
 			<div class="header_right">
@@ -177,42 +176,22 @@
 			<ul class="rslides" id="slider3">
 				<li>
 					<div class="banner1">
-					<!-- 	<div class="container">
-							<div class="banner-info2 text-center">
-								<h3>Providing<span> a Platform to Lnmiit Students </span></h3>
-								<p>Learn the courses from best online material and our faculty </p>
-							</div>
-						</div> -->
+					
 					</div>
 				</li>
 				<li>
 					<div class="banner2">
-						<!-- <div class="container">
-							<div class="banner-info2 text-center">
-								<h3>Contribute <span>Platform to contribute and help </span></h3>
-								<p>Contribute to this platform so that other can utilize the best material and lern more and help to grow this platform in our campus</p>
-							</div>
-						</div> -->
+						
 					</div>
 				</li>
 				<li>
 				<div class="banner1">
-						<!-- <div class="container">
-							<div class="banner-info2 text-center">
-								<h3>Providing<span> a Platform to Lnmiit Students </span> </h3>
-								<p>Learn the courses from best online material and our faculty </p>
-							</div>
-						</div> -->
+						
 					</div>
 				</li>
 				<li>
 					<div class="banner2">
-						<!-- <div class="container">
-							<div class="banner-info2 text-center">
-								<h3>Contribute <span>Platform to contribute and help </span></h3>
-								<p>Contribute to this platform so that other can utilize the best material and lern more and help to grow this platform in our campus</p>
-							</div>
-						</div> -->
+						
 					</div>
 				</li>
 			</ul>
@@ -304,9 +283,9 @@
 <div class="ind-team">
 	<div class="container">
 		<h3>Meet Our Team</h3>
-		<div class="col-md-4 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+		<div class="col-md-3 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
 			<div class="team-img">
-				<img class="img-responsive" src="images/pic4.jpg" alt=" " height="42" width="42"/>
+				<img class="img-responsive" src="images/pic4.jpg" alt=" " height="30" width="30"/>
 				<div class="team-info">
 					<ul>
 						<li class="hvr-rectangle-out"><a class="eco1" href="#"></a></li>
@@ -320,9 +299,9 @@
 			<h4>Manish Jain</h4>
 			<p>Developer</p>
 		</div>
-		<div class="col-md-4 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+		<div class="col-md-3 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
 			<div class="team-img">
-				<img class="img-responsive" src="images/pic5.jpg" alt=" "/>
+				<img class="img-responsive" src="images/pic5.jpg" alt=" " height="30" width="30"/>
 				<div class="team-info">
 					<ul>
 						<li class="hvr-rectangle-out"><a class="eco1" href="#"></a></li>
@@ -333,13 +312,30 @@
 					</ul>
 				</div>
 			</div>
-			<h4>Dr. Thompson</h4>
-			<p>Cardiology</p>
+			<h4>Anshul Garg</h4>
+			<p>Developer</p>
 
 		</div>
-		<div class="col-md-4 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+		<div class="col-md-3 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
 			<div class="team-img">
-				<img class="img-responsive" src="images/pic6.jpg" alt=" "/>
+				<img class="img-responsive" src="images/pic5.jpg" alt=" " height="30" width="30"/>
+				<div class="team-info">
+					<ul>
+						<li class="hvr-rectangle-out"><a class="eco1" href="#"></a></li>
+						<li class="hvr-rectangle-out"><a class="eco2" href="#"></a></li>
+						<li class="hvr-rectangle-out"><a class="eco3" href="#"></a></li>
+						<li class="hvr-rectangle-out"><a class="eco4" href="#"></a></li>
+						<li class="hvr-rectangle-out"><a class="eco5" href="#"></a></li>
+					</ul>
+				</div>
+			</div>
+			<h4>Mohd. Tariq</h4>
+			<p>Developer</p>
+
+		</div>
+		<div class="col-md-3 ind-gds text-center wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+			<div class="team-img">
+				<img class="img-responsive" src="images/pic6.jpg" alt=" " height="30" width="30"/>
 				<div class="team-info">
 					<ul>
 						<li class="hvr-rectangle-out"><a class="eco1" href="#"></a></li>
@@ -366,8 +362,8 @@
 		<div class="footer-main">
 			<div class="footer-top">
 				<div class="col-md-4 ftr-grid">
-					<h3>Learning</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+					<h3>E-LNMIIT</h3>
+					<p>Providing a platform to Lnmiit students to learn the courses from best online material </p>
 				</div>
 				<div class="col-md-4 ftr-grid">
 					<h3>Our Address</h3>
@@ -376,16 +372,16 @@
 							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						</div>
 						<div class="ftr-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p>Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="ftr-address">
 						<div class="local">
-							<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 						</div>
 						<div class="ftr-text">
-							<p>+1 (512) 154 8176</p>
+							<p>e-lnmiit@gmail.com</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -409,16 +405,10 @@
 			<div id="contact">
 			<div class="footer-bottom">
 				<div class="col-md-6 ftr-navg">
-					<ul>
-						<li><a href="index.jsp">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="shortcodes.html">Short Codes</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
+					
 				</div>
 				<div class="col-md-6 copyrights">
-					<p>© 2016 Learning. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+					<p>© 2017 E-LNMIIT. All Rights Reserved | Design by <span style="font-family:cursive">Manish Jain </span> </p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -441,11 +431,11 @@
 										<form action="./Login" method="post" >
 											<div class="sign-in">
 												<h4>Email :</h4>
-												<input type="text" name="email" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+												<input type="text" name="email" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
 											</div>
 											<div class="sign-in">
 												<h4>Password :</h4>
-												<input type="password" name="password" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+												<input type="password" name="password" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
 												<a href="#">Forgot password?</a>
 											</div>
 
@@ -476,29 +466,30 @@
 										<form action="./Signup" method="post">
                       <div class="sign-up">
 												<h4>Name :</h4>
-												<input type="text" name="name" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+												<input type="text" name="name" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
 											</div>
 											 <div class="sign-up">
 												<h4>Department:</h4>
-                        <select name = "branch">
+                        <select name = "branch" class="sign1">
                         <option value="cse">Computer Science and Engg</option>
                           <option value="ece">Electronics and Communication Engg</option>
                           <option value="cce">Computer and Communication Engg</option>
                           <option value="mme">Mechanical Engg</option>
                         </select>
 											</div>
+											<br/>
 											<div class="sign-up">
 												<h4>Email :</h4>
-												<input type="text" name="email" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+												<input type="text" name="email" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
 											</div>
 											<div class="sign-up">
 												<h4>Password :</h4>
-												<input type="password" name="password" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+												<input type="password" name="password" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
 
 											</div>
 											<div class="sign-up">
 												<h4>Re-type Password :</h4>
-												<input type="password" name="rpassword" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+												<input type="password" name="rpassword" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
 
 											</div>
 											<div class="sign-up">
@@ -524,35 +515,36 @@
       							<div class="login-grids">
       									<div class="login-bottom">
       										<form action="./Signup" method="post">
-                            <div class="sign-up">
+                            				<div class="sign-up">
       												<h4>Name :  </h4>
-      												<input type="text" name="name" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+      												<input type="text" name="name" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
       											</div>
       											 <div class="sign-up">
       												<h4>Roll No. :  </h4>
-      												<input type="text" name="roll" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'rollno.';}" required="">
+      												<input type="text" name="roll" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
       											</div>
       												<div class="sign-up">
       												<h4>Department :  </h4>
-                              <select name= "branch">
-                                  <option  value="cse">Computer Science and Engg</option>
-                                    <option value="ece">Electronics and Communication Engg</option>
-                                    <option value="cce">Computer and Communication Engg</option>
-                                    <option value="mme">Mechanical Engg</option>
-                                </select>
+                             				 <select name= "branch" class="sign1">
+                                  				<option  value="cse">Computer Science and Engg</option>
+                                    			<option value="ece">Electronics and Communication Engg</option>
+                                   				 <option value="cce">Computer and Communication Engg</option>
+                                    			<option value="mme">Mechanical Engg</option>
+                                			</select>
       											</div>
+      											<br/>
       											<div class="sign-up">
-      												<h4>Email :</h4>
-      												<input type="email" name="email" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
-      											</div>
+												<h4>Email :</h4>
+												<input type="text" name="email" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+											</div>
       				              <div class="sign-up">
       												<h4>Password :</h4>
-      												<input type="password" name="password" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+      												<input type="password" name="password" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
 
       											</div>
       											<div class="sign-up">
       												<h4>Re-type Password :</h4>
-      												<input type="password" name="rpassword" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+      												<input type="password" name="rpassword" value="" onfocus="this.value = ''; this.style.color='#000';" onblur="if (this.value == '') {this.value = '';}" required="">
 
       											</div>
       											<div class="sign-up">

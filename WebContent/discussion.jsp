@@ -8,6 +8,10 @@
 	HttpSession session;ArrayList<Navigation> cseNav,cceNav,eceNav,mmeNav; 
 	%> 
 <%
+/* HttpServletResponse httpResponse = (HttpServletResponse)response;
+httpResponse.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); 
+response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+httpResponse.setHeader("Pragma","no-cache");  */
 	session = request.getSession();
 	UID = (int)session.getAttribute("UID");
 	System.out.print("UID:"+" "+UID);
@@ -89,10 +93,10 @@
     <style>
      
         #navi{
-        	background: #F0F8FF;
+        	background:#ffffff;
         }
        
-
+       
         </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -120,11 +124,18 @@
 <!-- header -->
  <div class="header wow zoomIn">
         <div class="container">
+        <div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
+			<ul>
+				
+				<li><a href="mailto:e-lnmiit@gmail.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>e-lnmiit@gmail.com</a></li>
+			</ul>
+		</div>
             <div class="header_right">
                 <div class="login">
                 <ul> 
-                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="30px" height="40px"></span></a></li>
-                    <li><a href="#"><span aria-hidden="true" >Account Details </span></a></li>
+                    <li><a href="#"><span aria-hidden="true"><img src="icon/user.png" width="20px" height="30px"></span></a></li>
+                    <li><a href="accountDetails.jsp"><span aria-hidden="true" >Account Details </span></a></li>
+                    <li><button class = "btn btn-primary" type="button" onclick="location.href = './Logout';">Logout</button></li>
                 
                 </ul>
                 </div>    
@@ -155,21 +166,20 @@
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--horatio">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="index.jsp" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="myappointment.html" class="menu__link">Discussion</a></li> 
+							<li class="menu__item menu__item--current"><a href="student.html" class="menu__link">Home</a></li>
+						
 							
-							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Ask Question to Faculty</a></li> 
-							<li class="menu__item"><a href="mydetails.html" class="menu__link">Contribute</a></li> 
+							<li class="menu__item"><a href="#" class="menu__link">Messages</a></li> 
 						</ul>
 					</nav>
 				</div>
 			</nav>
 		</div>
 	</div>
-	</div>
+
 	<div class="container">
     <div class="row row-content">
-        <div class="col-xs-12 col-sm-3">
+       <div class="col-xs-12 col-sm-3">
         	<ul id="navi" class="navi">
 				<li><input type="checkbox" id="cb1"/><label for="cb1">Navigation</label>
 					<ul>
@@ -221,6 +231,7 @@
 										<%for(Pair p : n.getTopics()){ %>
 										<li><label><a href="lobject.jsp?TID=<%=p.getNum()%>&topic=<%=p.getStr()%>"><%=p.getStr() %></a></label> </li>
 										<%} %>
+										
 									</ul>
 								</li>
 								<%} %>
@@ -229,48 +240,55 @@
 					</ul>
 				</li>
 			</ul>
+			<p style="padding:10px;"></p>
         </div>
+         
         <div class="col-xs-12 col-sm-9 ">
-        	          
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
+        	   <div class="container">        
+            <div class="col-xs-12 col-sm-9 ">
             <div class="modal-body modal-spa">
               <div class="login-grids">
 
                   <div class="login-right">
-                    <h3><%=lobject.getLname()%></h3>
+                     
+                      <strong><h2 style="color:orange"><%=lobject.getLname() %></h2></strong> <br/>
+                      <i>Link:&nbsp;<a href="<%=lobject.getLink()%>" target="_blank"> <%=lobject.getLink() %></a></i><br/>
+                      	<%=lobject.getDescription() %>
+                       <p style="padding:3px;"></p>
+           
+                <form action="./Discussion" method="post" >
+                
+                      
+                        
+                    Comment: <br/>
+                    <textarea rows="4"  name="comment" class="sign" ></textarea> 
+                         
+                    
+                     
+                                 <br/>
+                                  Your Rating:&nbsp;<%=rating %><br/>
+                
+                                   <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">&#x2605;  </label>
+                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">&#x2605;</label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">&#x2605;</label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">&#x2605;</label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">&#x2605;</label>
+                                </fieldset>
+                           &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; 
+                            &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp; 
+                             &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; 
+                            &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp; 
+                            
+                            
+                           <button type="submit" class="btn btn-warning" required>submit</button>                         
+                    
+                    </form>
+                  </div>
+                </div>
+                      <p style="padding:30px"></p>
 
-                    <form action="./Discussion" method="post">
-                      <div class="sign-in">
-                        <div class="table-responsive">
-                          <table class="table">
-                          <thead>
-			                    <tr>
-			                        <th colspan="2">your rating:<%= rating %></th>
-			                    </tr>
-			                </thead>
-					<tr>
-                    <td id="topics">Comment :</td>
-
-                  <td><textarea rows="4" name="comment" class="sign" ></textarea></td></tr>
-                  <tr><td id="topics"><a href='<%=lobject.getLink() %>'><%=lobject.getLink() %></a></td>
-                              <td><fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
-                  </fieldset></td></tr>
-                   <tr><td><button>Submit</button></td>
-                  </tr>
-                   </table></div></div>
-                             </form>
-                    </div>
-
-                      </div>
-                        <div class="container">
-                        <%for(DiscussionStore obj : commentList){%>
+                      <%for(DiscussionStore obj : commentList){%>
                            <div class="media">
                             <div class="media-left">
                                 <img src="icon/patient.png" class="media-object" style="width:60px">
@@ -282,6 +300,10 @@
                         </div>
                         </div>
                     <%}%>
+                        
+                      <p style="padding:2px"></p>
+                  </div>
+                   
                   </div>
 
 
@@ -291,6 +313,65 @@
           </div>    
 
     </div>
+   <div class="footer w3ls">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid">
+					<h3>E-LNMIIT</h3>
+					<p>Providing a platform to Lnmiit students to learn the courses from best online material </p>
+				</div>
+				<div class="col-md-4 ftr-grid">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+						</div>
+						<div class="ftr-text">
+							<p>Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+						</div>
+						<div class="ftr-text">
+							<p>e-lnmiit@gmail.com</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid">
+					<h3>Stay In Touch</h3>
+					<form action="#" method="post">
+						<input type="text" placeholder="Enter Email"  name="Enter Email" required="">
+						<input type="submit" value="">
+					</form>
+					<ul class="ftr-social-icons">
+						<li><a class="fa" href="#"> </a></li>
+						<li><a class="tw" href="#"> </a></li>
+						<li><a class="dri" href="#"> </a></li>
+						<li><a class="p" href="#"> </a></li>
+
+					</ul>
+				</div>
+			   <div class="clearfix"> </div>
+			</div>
+			<div id="contact">
+			<div class="footer-bottom">
+				<div class="col-md-6 ftr-navg">
+					
+				</div>
+				<div class="col-md-6 copyrights">
+					<p>© 2017 E-LNMIIT. All Rights Reserved | Design by <span style="font-family:cursive">Manish Jain </span>  </p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
        
 	
 </body>

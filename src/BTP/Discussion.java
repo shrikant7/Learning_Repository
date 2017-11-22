@@ -36,7 +36,8 @@ public class Discussion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -113,8 +114,7 @@ public class Discussion extends HttpServlet {
 		        if(isRated){
 		        	rating = ((rating*ratingCount)-beforeRating+rate)/ratingCount;
 		        }else{
-		        	rating = ((rating*ratingCount)+rate)/(ratingCount+1);
-		        	ratingCount++;
+		        	rating = ((rating*ratingCount)+rate)/(++ratingCount);
 		        }
 		        temp = conn.prepareStatement("update lobject set rating=?,ratingCount=? where LID=?");
 		        temp.setInt(1, rating);
