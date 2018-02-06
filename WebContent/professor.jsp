@@ -240,8 +240,7 @@ httpResponse.setHeader("Pragma","no-cache");
 					<nav class="menu menu--horatio">
 						<ul class="nav navbar-nav menu__list">
 							<li class="menu__item menu__item--current"><a href="index.jsp" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Messages <span class="badge">0</span></a> </li>
-							<li class="menu__item"><a href="medicalhistory.html" class="menu__link">Add Topic </a> </li>
+							<li class="menu__item"><a href="#" class="menu__link">Messages <span class="badge">0</span></a> </li>
 						</ul>
 					</nav>
 				</div>
@@ -334,7 +333,7 @@ httpResponse.setHeader("Pragma","no-cache");
            <div class="table-responsive">
            <form method = "post" action="discussion.jsp">
            	<table class="table table-striped table-hover">
-           		 <tr><td><span id="txt">Trending</span></td></tr>
+           		 <tr><td><h4><span id="txt">Trending</span></h4></td></tr>
            		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(0).getTID()%>&LID=<%=trendingList.get(0).getLID()%>">&nbsp;<%=trendingList.get(0).getLname()%></a></td></tr>
            		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(1).getTID()%>&LID=<%=trendingList.get(1).getLID()%>">&nbsp;<%=trendingList.get(1).getLname()%></a></td></tr>
            		<tr><td><a href="discussion.jsp?TID=<%=trendingList.get(2).getTID()%>&LID=<%=trendingList.get(2).getLID()%>">&nbsp;<%=trendingList.get(2).getLname()%></a></td></tr>
